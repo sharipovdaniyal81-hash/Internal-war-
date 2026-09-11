@@ -112,6 +112,23 @@ SHADOW.PrimaryPart = RootPart2
 Character.Archivable = false
 SHADOW.Name = Player.Name .. "'s War"
 
+-- Скрываем никнейм и здоровье у теневой модели
+local shadowHumanoid = SHADOW:FindFirstChildOfClass("Humanoid")
+if shadowHumanoid then
+	shadowHumanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+	shadowHumanoid.NameDisplayDistance = 0
+	shadowHumanoid.HealthDisplayDistance = 0
+end
+local shadowHead = SHADOW:FindFirstChild("Head")
+if shadowHead then
+	for _, obj in ipairs(shadowHead:GetChildren()) do
+		if obj:IsA("BillboardGui") or obj:IsA("TextLabel") or obj:IsA("TextButton") then
+			obj:Destroy()
+		end
+	end
+end
+-- Конец скрытия никнейма
+
 local Effects = IT("Folder", Character)
 Effects.Name = "Effects"
 
@@ -1487,6 +1504,8 @@ sick.Playing = PLAYSONG
 
 -- stop default animation once
 ANIMATE.Parent = nil
+
+local shadowLastE = nil
 
 while true do
 	Swait()
