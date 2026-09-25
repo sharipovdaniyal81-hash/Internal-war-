@@ -1003,7 +1003,7 @@ local PROJECTILE = 2097544084
 local AOE = 2097544884
 local ULTIMATE = 2097545381
 
-local ATTACKS = {{"Switch ScreenBehaviour","m"},{";Fling","z",AOE,Fling},{";TpTo","x",BODY,TpTo},{";Hurl","c",PROJECTILE,Hurl},{";Kill","v",MOUSE,Kill}}
+local ATTACKS = {{";Fling","z",AOE,Fling},{";TpTo","x",BODY,TpTo},{";Hurl","c",PROJECTILE,Hurl},{";Kill","v",MOUSE,Kill}}
 local GUIS = {}
 
 for i = 1, #ATTACKS do
